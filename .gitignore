@@ -1,69 +1,62 @@
-# Prerequisites
-*.d
+#include <iostream>
+using namespace std;
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+class Circle
+{
+private:
+    double radius;
+    double pi = 3.14159;
 
-# Precompiled Headers
-*.gch
-*.pch
+public:
+    Circle()
+    {
+        setRadius(0.0);
+    }
 
-# Linker files
-*.ilk
+    Circle(double r)
+    {
+        setRadius(r);
+    }
 
-# Debugger Files
-*.pdb
+    void setRadius(double r)
+    {
+        radius = r;
+    }
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-*.so.*
+    double getRadius()
+    {
+        return radius;
+    }
 
+    double getArea()
+    {
+        return pi * getRadius() * getRadius();
+    }
 
-# Fortran module files
-*.mod
-*.smod
+    double getDiameter()
+    {
+        return getRadius() * 2;
+    }
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+    double getCircumference()
+    {
+        return 2 * pi * getRadius();
+    }
+};
 
-# Executables
-*.exe
-*.out
-*.app
+int main()
+{
+    double r;
 
-# Build directories
-build/
-Build/
-build-*/
+    cout << "Enter the radius of the circle: ";
+    cin >> r;
 
-# CMake generated files
-CMakeFiles/
-CMakeCache.txt
-cmake_install.cmake
-Makefile
-install_manifest.txt
-compile_commands.json
+    Circle c(r);
 
-# Temporary files
-*.tmp
-*.log
-*.bak
-*.swp
+    cout << "\nRadius: " << c.getRadius() << endl;
+    cout << "Area: " << c.getArea() << endl;
+    cout << "Diameter: " << c.getDiameter() << endl;
+    cout << "Circumference: " << c.getCircumference() << endl;
 
-# vcpkg
-vcpkg_installed/
-
-# debug information files
-*.dwo
-
-# test output & cache
-Testing/
-.cache/
+    return 0;
+}
